@@ -45,4 +45,4 @@ This project was created to:
 
 ---
 
-*This project is part of my learning journey in software engineering and mobile application development.*
+
