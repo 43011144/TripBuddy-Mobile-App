@@ -1,0 +1,98 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".budget"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+
+    <EditText
+        android:id="@+id/etDestination"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter Destination"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etNotes"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Enter Notes"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etDestination" />
+
+    <EditText
+        android:id="@+id/etCustomExpense"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Enter Custom Expenses"
+        android:inputType="number"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etNotes" />
+
+    <Spinner
+        android:id="@+id/spinnerActivities"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etCustomExpense" />
+
+    <EditText
+        android:id="@+id/etMealExpense"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Enter Meals Expense"
+        android:inputType="number"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinnerActivities" />
+
+    <Button
+        android:id="@+id/btnSave"
+        android:text="Save Trip"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/etMealExpense"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp"/>
+
+    <TextView
+        android:id="@+id/tvBudgetSummary"
+        android:layout_width="384dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="12dp"
+        android:text="Subtotal: 0.0 | Discount: 0.0 | Final Budget: 0.0"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnSave" />
+
+    <Button
+        android:id="@+id/btnConfirm"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="180dp"
+        android:text="Confirm Trip"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvBudgetSummary" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
