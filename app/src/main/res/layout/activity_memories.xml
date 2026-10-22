@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:columnCount="2"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/image1"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_columnWeight="1"
+        android:layout_margin="4dp"
+        android:contentDescription="@string/tb_photo_description"
+        android:scaleType="centerCrop"
+        android:src="@drawable/image1" />
+
+    <ImageView
+        android:id="@+id/image2"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_columnWeight="1"
+        android:layout_margin="4dp"
+        android:contentDescription="@string/tb_photo_description"
+        android:scaleType="centerCrop"
+        android:src="@drawable/image2" />
+
+    <Button
+        android:id="@+id/nextBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_row="1"
+        android:layout_column="1"
+        android:text="NEXT" />
+
+    <TextView
+        android:id="@+id/tvMemoriesEmpty"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_columnSpan="2"
+        android:layout_gravity="fill_horizontal"
+        android:padding="16dp"
+        android:text="@string/tb_memories_empty"
+        android:visibility="gone" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/memoryList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_columnSpan="2"
+        android:layout_columnWeight="1"
+        android:layout_gravity="fill"
+        android:layout_rowWeight="1" />
+
+</GridLayout>

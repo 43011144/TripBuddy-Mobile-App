@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The original upload did not include a manifest. This is a complete one for the current screens.
+  If you already have a manifest, MERGE rather than replace: keep your own icon/roundIcon/theme values
+  and copy across these changes:
+    1. android:name=".TripBuddyApp" on <application>  (applies the saved theme, warms up the database)
+    2. allowBackup="false", dataExtractionRules, usesCleartextTraffic="false"  (security)
+    3. android:exported="false" on every activity except MainActivity  (other apps cannot open your screens)
+    4. the new TripHistoryActivity entry
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:name=".TripBuddyApp"
+        android:allowBackup="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="TripBuddy"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.TripBuddy"
+        android:usesCleartextTraffic="false"
+        tools:targetApi="31">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".home" android:exported="false" />
+        <activity android:name=".registration" android:exported="false" />
+        <activity android:name=".LoginActivity" android:exported="false" />
+        <activity android:name=".SaveMemoryActivity" android:exported="false" />
+        <activity android:name=".DashboardActivity" android:exported="false" />
+        <activity android:name=".CommentsActivity" android:exported="false" />
+        <activity android:name=".SettingsActivity" android:exported="false" />
+        <activity android:name=".budget" android:exported="false" />
+        <activity android:name=".gallery" android:exported="false" />
+        <activity android:name=".memories" android:exported="false" />
+        <activity android:name=".TripHistoryActivity" android:exported="false" />
+    </application>
+</manifest>

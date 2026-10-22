@@ -46,3 +46,35 @@ This project was created to:
 ---
 
 
+
+---
+
+## Upgrade notes (database, security, performance, scalability, concurrency)
+
+### Where files go
+The upload was a flat folder, so files now sit in the standard Android layout. Existing files keep their names, class names, view IDs and navigation flow.
+`app/src/main/java/com/example/tripbuddy/` (code), `app/src/main/res/` (layouts, strings, xml), `app/src/test/` (unit tests).
+Copy `AndroidManifest.xml` changes and the dependencies in `app/build.gradle.additions.txt` into your project (the upload had no manifest or Gradle files, so merge rather than overwrite).
+
+### Architecture
+Screens (Activities) -> Repositories (`repo/`) -> DAOs (`data/`) -> SQLite (`TripBuddyDbHelper`). Screens never touch SQL.
+- `core/` AppExecutors (thread pools), Money and BudgetCalculator (pricing in whole cents), Callback and AppException
+- `security/` PasswordHasher, InputValidator, SessionManager
+- `model/` immutable data classes, `ui/` list adapters, `ServiceLocator` shares one repository per type
+
+### Database
+SQLite with tables `users`, `trips`, `memories`; foreign keys with cascade delete, CHECK constraints, indexes for the history queries, WAL mode, versioned migrations in `onUpgrade`. Rows carry a `uuid` and `updated_at`, so a remote sync can be added later without changing the schema.
+
+### Security
+- Salted PBKDF2-HMAC-SHA256 password hashing (310,000 iterations, stored inside the hash string so it can be raised later); constant-time compare
+- Sign-in lockout (5 wrong passwords = 5 minutes), atomic in SQL; same error and same timing for unknown users
+- All SQL parameterised; every query scoped by `user_id`; prices and totals recomputed in the repository, never trusted from the UI
+- Input validation and length limits; sessions expire after 7 days; manifest hardening (no backup, no cleartext, activities not exported); login redirect only to allow-listed screens
+
+### Concurrency and performance
+- No database or hashing work on the main thread: single writer thread, small reader pool, separate crypto pool
+- Optimistic locking (`version` column) on trips; save + confirm in one transaction; double-tap protection
+- Callbacks are dropped if a screen closed meanwhile; keyset pagination (20 per page) with DiffUtil lists; MediaPlayer released correctly
+
+### Tests
+`app/src/test` covers money, pricing rules, password hashing and validation (`./gradlew test`).
