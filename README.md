@@ -78,3 +78,9 @@ SQLite with tables `users`, `trips`, `memories`; foreign keys with cascade delet
 
 ### Tests
 `app/src/test` covers money, pricing rules, password hashing and validation (`./gradlew test`).
+
+ScreenShots
+<img width="1776" height="1009" alt="Screenshot (35)" src="https://github.com/user-attachments/assets/654d95dc-d4df-4253-b184-b6d4ddea3e5f" />
+<img width="1812" height="1087" alt="Screenshot (36)" src="https://github.com/user-attachments/assets/fe7659b2-966f-4fce-9883-68ca961b8cac" />
+<img width="1738" height="984" alt="Screenshot (34)" src="https://github.com/user-attachments/assets/041f56b6-4347-4348-9fea-7331dd13bba3" />
+
